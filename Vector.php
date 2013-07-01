@@ -53,12 +53,9 @@ class Vector{
 	private function add_single($vector){
 		$result_vector = new Vector($this->coordinates);
 		if($vector instanceof Vector)
-
-			if($this->dimension == $vector->dimension){
-				for($i = 0; $i < $this->dimension; $i++){
+			if($this->dimension == $vector->dimension)
+				for($i = 0; $i < $this->dimension; $i++)
 					$result_vector->coordinates[$i] += $vector->coordinates[$i];
-				}
-		}
 		return $result_vector;
 	}
 
