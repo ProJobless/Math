@@ -41,7 +41,7 @@ class Vector{
 		$result_vector = new Vector($this->coordinates);
 		if(is_array($vector)){
 			foreach($vector as $v){
-				$result_vector = $this->add_single($result_vector);
+				$result_vector = $result_vector->add_single($v);
 			}
 		}
 		else{
