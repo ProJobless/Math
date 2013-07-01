@@ -40,8 +40,8 @@ class Vector{
 	public function add($vector){
 		$result_vector = new Vector($this->coordinates);
 		if(is_array($vector)){
-			foreach($vectors as $v){
-				$result_vector = $this->add_single($v);
+			foreach($vector as $v){
+				$result_vector = $this->add_single($result_vector);
 			}
 		}
 		else{
