@@ -4,10 +4,20 @@ class Vector{
 	public $coordinates = array();
 	public $dimension;
 
+	public function Vector($coordinates){
+		if(is_array($coordinates)){
+			$this->coordinates = $coordinates;
+			$this->dimension   = count($coordinates); 
+		}
+		else{
+			//TODO: return error
+		}
+	}
+
 	public function __constructor($coordinates){
 		if(is_array($coordinates)){
 			$this->coordinates = $coordinates;
-			$this->dimension   = length($coordinates); 
+			$this->dimension   = count($coordinates); 
 		}
 		else{
 			//TODO: return error
@@ -16,10 +26,10 @@ class Vector{
 
 	public function toString(){
 		$string = 'Vector(' . $this->dimension . ') (';
-		foreach($this->coordinates as $c){
-			$string .= $c . ' ';
+		for($i = 0; $i < $this->dimension - 1; $i++){
+			$string .= $this->coordinates[$i] . ', ';
 		}
-		$string .= ')';
+		$string .= $this->coordinates[$i] . ')';
 		return $string;
 	}
 
@@ -43,9 +53,12 @@ class Vector{
 	private function add_single($vector){
 		$result_vector = new Vector($this->coordinates);
 		if($vector instanceof Vector)
-			if($this->dimension == $vector->dimension)
-				for($i = 0; $i < $this->dimension; $i++)
-					$result_vector->coordinates[$i] .= $vector->coordinates[$i];
+
+			if($this->dimension == $vector->dimension){
+				for($i = 0; $i < $this->dimension; $i++){
+					$result_vector->coordinates[$i] += $vector->coordinates[$i];
+				}
+		}
 		return $result_vector;
 	}
 

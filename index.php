@@ -9,4 +9,4 @@
 
 	$s = $u->add($v->add($w));
 
-	echo $u->toString();
+	echo $s->toString();
