@@ -1,12 +1,12 @@
 <?php
+	echo '<pre>';
 	include 'Vector.php';
-	$coords = array(1, 2, 3);
-	$u = new Vector($coords);
+	$u = new Vector(1, 2, 3);
 
-	$v = new Vector($coords);
+	$v = new Vector($u->coordinates);
 
-	$w = new Vector($coords);
+	$s = $u->add($v)->add($v);
+	$dot = $u->dot($s);
 
-	$s = $u->add(array($v, $w));
-
-	echo $s->toString();
+	echo $s->toString() . '<br />';
+	echo $dot;
